@@ -15,49 +15,47 @@ int main()
 {
 	User UserDetails;
 	UserDir UserDirDetails;
-
-	//Startup
 	std::vector<User> vUsers;
+	char Input;
 
 	LoadUsers(vUsers, "users.json");
-	//RegisterNewUser(vUsers, UserDetails);
-	//SaveUsersToJson(vUsers, "users.json");
-
-	//Loads all Users to vUsers
-
-
-	LoginUser(vUsers, UserDetails);
 
 
 
 
-	//if (!VerifyUser)
-	//{
-	//	RegisterNewUser(...)
-	//}
+    while (true)
+    {
+        std::cin >> Input;
 
-	//UserDetails.IsVerified = VerifyUser(UserDetails, UserDirDetails);
-	//StoreVerifiedUser(vUsers, UserDetails);
-
-	//SaveUsersToJson(vUsers, "users.json");
-
-	//std::cout << vUsers[0].Username << vUsers[0].UserHash << vUsers[0].IsVerified;
-
-
-
-
-
-
-	if (SaveUsersToJson(vUsers, "users.json"))
-	{
-		if (!SaveUsersToJson(vUsers, "users.json"))
-		{
-			std::cerr << "Saving to JSON failed.\n";
-		}
-	}
-
-
-
-
+        switch (Input)
+        {
+        case '1':
+        {
+            LoginUser(vUsers, UserDetails);
+            break;
+        }
+        case '2':
+        {
+            if (RegisterNewUser(vUsers, UserDetails))
+            {
+                if (!SaveUsersToJson(vUsers, "users.json"))
+                {
+                    std::cerr << "Saving to JSON failed.\n";
+                }
+            }
+            break;
+        }
+        case '3':
+        {
+            std::cout << "Closing Session\n";
+            return 0;
+        }
+        default:
+        {
+            std::cerr << "Invalid choice. Please try again.\n";
+            break;
+        }
+        }
+    }
 	return 0;
 }
