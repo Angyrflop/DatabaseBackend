@@ -1,3 +1,4 @@
+//Copyright(c) Goes to Jan Oliver Quant
 #include <UserDir.hpp>
 
 /*

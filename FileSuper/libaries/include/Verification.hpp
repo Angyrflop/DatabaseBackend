@@ -1,3 +1,4 @@
+//Copyright(c) Goes to Jan Oliver Quant
 #pragma once
 #include <vector>
 #include "User.hpp"

@@ -19,10 +19,14 @@ int main()
 	//Startup
 	std::vector<User> vUsers;
 
-	//Loads all Users to vUsers
-	LoadUsers(vUsers, "users.json") ;
+	LoadUsers(vUsers, "users.json");
+	//RegisterNewUser(vUsers, UserDetails);
+	//SaveUsersToJson(vUsers, "users.json");
 
-	RegisterNewUser(vUsers, UserDetails);
+	//Loads all Users to vUsers
+
+
+	LoginUser(vUsers, UserDetails);
 
 
 

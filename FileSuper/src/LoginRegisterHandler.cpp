@@ -1,5 +1,7 @@
+//Copyright(c) Goes to Jan Oliver Quant
 #include "LoginRegisterHandler.hpp"
 #include "User.hpp"
+#include "UserDir.hpp"
 #include <iostream>
 
 bool RegisterNewUser(std::vector<User>& vUsers, User& UserDetails)
@@ -20,14 +22,29 @@ bool RegisterNewUser(std::vector<User>& vUsers, User& UserDetails)
 		std::cout << "Info: New User '" << UserDetails.Username << "' has been created.\n";
 		vUsers.emplace_back(UserDetails);
 	}
-	else {
+		else {
 		std::cerr << "Info: An User might have tried to log in into a forreign account.\n";
 		return false;
 	}
 	return true;
 }
 
-bool LoginUser(const std::vector<User>&, User& UserDetails)
+bool LoginUser(const std::vector<User>& vUsers, User& UserDetails)
 {
-	if (UserDetails.Username != )
+	std::string Username;
+	std::string UserHash;
+	//Temporary
+	std::cin >> Username;
+	std::cin >> UserHash;
+
+	for (const auto& User : vUsers)
+	{
+		if (User.UserHash == UserHash && User.Username == Username)
+		{
+			std::cout << "User: '" << Username << "' Has logged in.\n";
+			return true;
+		}
+	}
+	std::cout << "Info: Login failed. User: '" << Username << "' not found or wrong password. Please try again.\n";
+	return false;
 }

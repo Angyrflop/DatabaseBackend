@@ -1,3 +1,4 @@
+//Copyright(c) Goes to Jan Oliver Quant
 #include <JsonHandler.hpp>
 #include <json.hpp>
 #include <fstream>
