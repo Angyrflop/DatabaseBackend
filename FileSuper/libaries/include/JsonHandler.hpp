@@ -6,4 +6,7 @@
 #include "User.hpp"
 
 bool SaveUsersToJson(const std::vector<User>& vUsers, const std::string& sFilePath);
+
 bool LoadUsers(std::vector<User>& vUsers, const std::string& sFilePath);
+
+bool DeleteUserFromJson(const std::string& sFilePath, int i);

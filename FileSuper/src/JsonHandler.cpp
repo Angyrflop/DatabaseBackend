@@ -70,3 +70,44 @@ bool LoadUsers(std::vector<User>& vUsers, const std::string& sFilePath)
 	Logger(LogType::INFO) << "Users loading was successful.";
 	return true;
 }
+
+bool DeleteUserFromJson(const std::string& sFilePath, int i)
+{
+	std::ifstream iFile(sFilePath);
+	if (!iFile.is_open())
+	{
+		Logger(LogType::WARNING) << "Couldnt open users.";
+		return false;
+	}
+
+	if (iFile.peek() == std::ifstream::traits_type::eof())
+	{
+		Logger(LogType::WARNING) << "File is either corrupted or empty.";
+		return false;
+	}
+
+	json j;
+	iFile >> j;
+	iFile.close();
+
+	if (j < 0 || i >= j.size())
+	{
+		Logger(LogType::WARNING) << "Invalid index. No User removed.";
+		return false;
+	}
+
+	j.erase(j.begin() + i);
+
+	std::ofstream oFile(sFilePath);
+	if (!oFile.is_open())
+	{
+		Logger(LogType::ERROR) << "Couldnt open users.";
+		return false;
+	}
+
+	oFile << std::setw(4) << j;
+	oFile.close();
+
+	Logger(LogType::INFO) << "User removed from json.";
+	return true;
+}

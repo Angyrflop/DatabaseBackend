@@ -3,6 +3,7 @@
 #include "User.hpp"
 #include "UserDir.hpp"
 #include "logginHandler.hpp"
+#include "JsonHandler.hpp"
 #include <iostream>
 
 bool FindUser(const std::vector<User>& vUsers, const std::string& username)
@@ -16,6 +17,29 @@ bool FindUser(const std::vector<User>& vUsers, const std::string& username)
 	}
 
 	return false;
+}
+
+std::string FindPassword(const std::vector<User>& vUsers, const std::string& username)
+{
+	for (const auto& User : vUsers)
+	{
+		if (User.Username == username)
+		{
+			return User.UserHash;
+		}
+	}
+}
+
+int GetUserIndex(const std::vector<User>& vUsers, const std::string& username)
+{
+	for (size_t i = 0; i < vUsers.size(); ++i)
+	{
+		if (vUsers[i].Username == username)
+		{
+			return i;
+		}
+	}
+	return -1;
 }
 
 bool RegisterNewUser(std::vector<User>& vUsers, User& UserDetails)
@@ -62,6 +86,35 @@ bool LoginUser(const std::vector<User>& vUsers, User& UserDetails)
 			return true;
 		}
 	}
-	Logger(LogType::WARNING) << "Login failed. User: '" << Username << "' ´not found or wrong password.";
+	Logger(LogType::WARNING) << "Login failed. User: '" << Username << "' not found or wrong password.";
 	return false;
+}
+
+bool DeleteUser(std::vector<User>& vUsers, User& UserDetails)
+{
+	std::string Username;
+	std::string UserHash;
+	//Temp
+	std::cin >> Username;
+	std::cin >> UserHash;
+
+	int i{ GetUserIndex(vUsers, Username) };
+	UserDetails.UserHash = FindPassword(vUsers, Username);
+
+	if (i == -1)
+	{
+		Logger(LogType::WARNING) << "User '" << Username << "' not found.";
+		return false;
+	}
+
+	if (UserHash != UserDetails.UserHash)
+	{
+		Logger(LogType::WARNING) << "Password doesnt match. Abort.";
+		return false;
+	}
+
+	DeleteUserFromJson("users.json", i);
+
+	vUsers.erase(vUsers.begin() + i);
+	return true;
 }

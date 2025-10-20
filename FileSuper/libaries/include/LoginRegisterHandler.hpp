@@ -3,6 +3,8 @@
 #include <vector>
 #include "User.hpp"
 
+bool DeleteUser(std::vector<User>& vUsers, User& UserDetails);
+
 bool RegisterNewUser(std::vector<User>& vUsers, User& UserDetails);
 
 bool LoginUser(const std::vector<User>& vUsers, User& UserDetails);

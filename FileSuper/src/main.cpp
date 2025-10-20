@@ -19,6 +19,7 @@ int main()
 	char Input;
 
 
+
     if (!LoadUsers(vUsers, "users.json"))
     {
         return 1;
@@ -51,6 +52,11 @@ int main()
         {
             std::cout << "Closing Session\n";
             return 0;
+        }
+        case '4':
+        {
+           DeleteUser(vUsers, UserDetails);
+           break;
         }
         default:
         {
