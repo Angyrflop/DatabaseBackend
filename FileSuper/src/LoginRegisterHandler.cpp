@@ -2,11 +2,26 @@
 #include "LoginRegisterHandler.hpp"
 #include "User.hpp"
 #include "UserDir.hpp"
+#include "logginHandler.hpp"
 #include <iostream>
+
+bool FindUser(const std::vector<User>& vUsers, const std::string& username)
+{
+	for (const auto& User : vUsers)
+	{
+		if (User.Username == username)
+		{
+			return true;
+		}
+	}
+
+	return false;
+}
 
 bool RegisterNewUser(std::vector<User>& vUsers, User& UserDetails)
 {
 	char registerChoice;
+
 	std::cout << "Would you like to make a new user?\n";
 
 	std::cin >> registerChoice;
@@ -15,16 +30,18 @@ bool RegisterNewUser(std::vector<User>& vUsers, User& UserDetails)
 	{
 		std::cout << "Enter your Username.\n";
 		std::cin >> UserDetails.Username;
+
+		if (FindUser(vUsers, UserDetails.Username))
+		{
+			Logger(LogType::WARNING) << "User Already exist. Please enter a different name.";
+			return false;
+		}
+
 		std::cout << "Enter your password.\n";
 		std::cin >> UserDetails.UserHash;
 
-
-		std::cout << "Info: New User '" << UserDetails.Username << "' has been created.\n";
+		Logger(LogType::INFO) << "New User '" << UserDetails.Username << "' has been created.";
 		vUsers.emplace_back(UserDetails);
-	}
-		else {
-		std::cerr << "Info: An User might have tried to log in into a forreign account.\n";
-		return false;
 	}
 	return true;
 }
@@ -41,10 +58,10 @@ bool LoginUser(const std::vector<User>& vUsers, User& UserDetails)
 	{
 		if (User.UserHash == UserHash && User.Username == Username)
 		{
-			std::cout << "User: '" << Username << "' Has logged in.\n";
+			Logger(LogType::INFO) << "User: '" << Username << "' has loggin in.";
 			return true;
 		}
 	}
-	std::cout << "Info: Login failed. User: '" << Username << "' not found or wrong password. Please try again.\n";
+	Logger(LogType::WARNING) << "Login failed. User: '" << Username << "' ´not found or wrong password.";
 	return false;
 }

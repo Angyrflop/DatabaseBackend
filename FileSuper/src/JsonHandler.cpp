@@ -5,6 +5,7 @@
 #include <iostream>
 #include <iomanip>
 #include "User.hpp"
+#include "logginHandler.hpp"
 
 using json = nlohmann::json;
 
@@ -25,7 +26,7 @@ bool SaveUsersToJson(const std::vector<User>& vUsers, const std::string& sFilePa
 	std::ofstream oFile(sFilePath);
 	if (!oFile.is_open())
 	{
-		std::cerr << "Error: could not open '" << sFilePath << "' for writing.\n";
+		Logger(LogType::ERROR) << "Could not open'" << sFilePath << "' for writing.\n";
 		return false;
 	}
 
@@ -40,14 +41,14 @@ bool LoadUsers(std::vector<User>& vUsers, const std::string& sFilePath)
 	std::ifstream iFile(sFilePath);
 	if (!iFile.is_open())
 	{
-		std::cerr << "Error: Couldnt read Users.\n";
+		Logger(LogType::WARNING) << "Couldnt open users.";
 		return false;
 	}
 
 	//Not my code
 	if (iFile.peek() == std::ifstream::traits_type::eof())
 	{
-		std::cerr << "Warning: Users file is empty.\n";
+		Logger(LogType::WARNING) << "File is either corrupted or empty.";
 		return false;
 	}
 
@@ -65,7 +66,7 @@ bool LoadUsers(std::vector<User>& vUsers, const std::string& sFilePath)
 
 	}
 
-	std::cout << "Info: Loaded '" << vUsers.size() << "' Users into vUsers.\n";
-	std::cout << "Info: Users loading was successful.\n";
+	Logger(LogType::WARNING) << "Loaded '" << vUsers.size() << "' users from database.";
+	Logger(LogType::INFO) << "Users loading was successful.";
 	return true;
 }

@@ -1,0 +1,4 @@
+2025-10-20 18:39:31 [WARN] Loaded '7' users from database.
+2025-10-20 18:39:31 [INFO] Users loading was successful.
+2025-10-20 18:39:39 [INFO] New User 'kk' has been created.
+2025-10-20 18:39:49 [WARN] User Already exist. Please enter a different name.

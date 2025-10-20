@@ -18,10 +18,11 @@ int main()
 	std::vector<User> vUsers;
 	char Input;
 
-	LoadUsers(vUsers, "users.json");
 
-
-
+    if (!LoadUsers(vUsers, "users.json"))
+    {
+        return 1;
+    }
 
     while (true)
     {
@@ -41,11 +42,12 @@ int main()
                 if (!SaveUsersToJson(vUsers, "users.json"))
                 {
                     std::cerr << "Saving to JSON failed.\n";
+                    return 1;
                 }
             }
             break;
         }
-        case '3':
+        case '3': // Temp
         {
             std::cout << "Closing Session\n";
             return 0;
