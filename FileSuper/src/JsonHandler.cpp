@@ -7,6 +7,7 @@
 #include "LoginRegisterHandler.hpp"
 #include "logginHandler.hpp"
 #include <HashingHandler.hpp>
+#include <config.hpp>
 
 using json = nlohmann::json;
 
@@ -72,7 +73,7 @@ bool LoadUsers(std::vector<User>& vUsers, const std::string& sFilePath)
 	return true;
 }
 
-bool DeleteUserFromJson(const std::string& sFilePath, int i)
+static bool DeleteUserFromJson(const std::string& sFilePath, int i)
 {
 	std::ifstream iFile(sFilePath);
 	if (!iFile.is_open())
@@ -136,7 +137,7 @@ bool DeleteUser(std::vector<User>& vUsers, User& UserDetails)
 		return false;
 	}
 
-	DeleteUserFromJson("users.json", i);
+	DeleteUserFromJson(Config::USERS_FILE, i);
 
 	vUsers.erase(vUsers.begin() + i);
 	return true;

@@ -7,7 +7,7 @@
 #include <HashingHandler.hpp>
 #include <iostream>
 
-bool FindUser(const std::vector<User>& vUsers, const std::string& username)
+static bool FindUser(const std::vector<User>& vUsers, const std::string& username)
 {
 	for (const auto& User : vUsers)
 	{

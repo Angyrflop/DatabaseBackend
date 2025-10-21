@@ -1,6 +1,6 @@
 #include "logginHandler.hpp"
+#include <config.hpp>
 
-static const char* LOG_FILE = "log.txt";
 
 Logger::Logger(LogType type)
     : m_type(type)
@@ -14,7 +14,7 @@ Logger::~Logger()
 
 void Logger::Write()
 {
-    std::ofstream oFile(LOG_FILE, std::ios::app);
+    std::ofstream oFile(Config::LOG_FILE, std::ios::app);
     if (!oFile.is_open())
     {
         std::cerr << "[Logger] Failed to open log file.\n";

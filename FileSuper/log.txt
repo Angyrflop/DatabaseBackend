@@ -3,3 +3,7 @@
 2025-10-21 10:21:49 [INFO] New User 'Jan' has been created.
 2025-10-21 10:22:02 [INFO] Login successful.
 2025-10-21 10:22:24 [INFO] User removed from json.
+2025-10-21 10:51:58 [WARN] Loaded '3' users from database.
+2025-10-21 10:51:58 [INFO] Users loading was successful.
+2025-10-21 10:53:00 [WARN] Loaded '3' users from database.
+2025-10-21 10:53:00 [INFO] Users loading was successful.

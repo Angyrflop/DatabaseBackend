@@ -11,11 +11,12 @@
 #include <HashingHandler.hpp>
 #include <logginHandler.hpp>
 #include <cstdlib>
+#include <config.hpp>
 
 int main()
 {
 
-    if (!initSodium)
+    if (!initSodium())
     {
         Logger(LogType::ERROR) << "Failed to init sodium!";
         return 1;
@@ -26,9 +27,7 @@ int main()
 	std::vector<User> vUsers;
 	char Input;
 
-    std::string Password{ "123" };
-
-    if (!LoadUsers(vUsers, "users.json"))
+    if (!LoadUsers(vUsers, Config::USERS_FILE))
     {
         abort();
     }
@@ -48,7 +47,7 @@ int main()
         {
             if (RegisterNewUser(vUsers, UserDetails))
             {
-                if (!SaveUsersToJson(vUsers, "users.json"))
+                if (!SaveUsersToJson(vUsers, Config::USERS_FILE))
                 {
                     std::cerr << "Saving to JSON failed.\n";
                     std::abort();
