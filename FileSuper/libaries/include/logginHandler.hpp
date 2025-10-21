@@ -10,18 +10,18 @@ enum class LogType { INFO, WARNING, ERROR };
 class Logger
 {
 public:
-    explicit Logger(LogType type);
-    ~Logger();
+	explicit Logger(LogType type);
+	~Logger();
 
-    template<typename T>
-    Logger& operator<<(const T& value)
-    {
-        m_ss << value;
-        return *this;
-    }
+	template<typename T>
+	Logger& operator<<(const T& value)
+	{
+		m_ss << value;
+		return *this;
+	}
 
 private:
-    void Write();
-    LogType m_type;
-    std::ostringstream m_ss;
+	void Write();
+	LogType m_type;
+	std::ostringstream m_ss;
 };

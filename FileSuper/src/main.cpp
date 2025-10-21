@@ -2,27 +2,35 @@
 
 #include <iostream>
 #include <vector>
-#include "json.hpp"
-#include "User.hpp"
-#include "UserDir.hpp"
-#include "JsonHandler.hpp"
-#include "Verification.hpp"
-#include "LoginRegisterHandler.hpp"
-
-using json = nlohmann::json;
+#include <json.hpp>
+#include <User.hpp>
+#include <UserDir.hpp>
+#include <JsonHandler.hpp>
+#include <Verification.hpp>
+#include <LoginRegisterHandler.hpp>
+#include <HashingHandler.hpp>
+#include <logginHandler.hpp>
+#include <cstdlib>
 
 int main()
 {
+
+    if (!initSodium)
+    {
+        Logger(LogType::ERROR) << "Failed to init sodium!";
+        return 1;
+    }
+
 	User UserDetails;
 	UserDir UserDirDetails;
 	std::vector<User> vUsers;
 	char Input;
 
-
+    std::string Password{ "123" };
 
     if (!LoadUsers(vUsers, "users.json"))
     {
-        return 1;
+        abort();
     }
 
     while (true)
@@ -43,7 +51,7 @@ int main()
                 if (!SaveUsersToJson(vUsers, "users.json"))
                 {
                     std::cerr << "Saving to JSON failed.\n";
-                    return 1;
+                    std::abort();
                 }
             }
             break;
@@ -51,7 +59,7 @@ int main()
         case '3': // Temp
         {
             std::cout << "Closing Session\n";
-            return 0;
+            std::exit(0);
         }
         case '4':
         {
@@ -65,5 +73,5 @@ int main()
         }
         }
     }
-	return 0;
+    std::exit(0);
 }

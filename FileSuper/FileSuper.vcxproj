@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\HashingHandler.cpp" />
     <ClCompile Include="src\JsonHandler.cpp" />
     <ClCompile Include="src\loggingHandler.cpp" />
     <ClCompile Include="src\LoginRegisterHandler.cpp" />
@@ -30,6 +31,7 @@
     <ClCompile Include="src\Verification.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="libaries\include\HashingHandler.hpp" />
     <ClInclude Include="libaries\include\JsonHandler.hpp" />
     <ClInclude Include="libaries\include\logginHandler.hpp" />
     <ClInclude Include="libaries\include\LoginRegisterHandler.hpp" />

@@ -4,6 +4,7 @@
 #include "UserDir.hpp"
 #include "logginHandler.hpp"
 #include "JsonHandler.hpp"
+#include <HashingHandler.hpp>
 #include <iostream>
 
 bool FindUser(const std::vector<User>& vUsers, const std::string& username)
@@ -28,6 +29,7 @@ std::string FindPassword(const std::vector<User>& vUsers, const std::string& use
 			return User.UserHash;
 		}
 	}
+	return std::string();
 }
 
 int GetUserIndex(const std::vector<User>& vUsers, const std::string& username)
@@ -46,6 +48,8 @@ bool RegisterNewUser(std::vector<User>& vUsers, User& UserDetails)
 {
 	char registerChoice;
 
+	std::string Password;
+
 	std::cout << "Would you like to make a new user?\n";
 
 	std::cin >> registerChoice;
@@ -62,7 +66,9 @@ bool RegisterNewUser(std::vector<User>& vUsers, User& UserDetails)
 		}
 
 		std::cout << "Enter your password.\n";
-		std::cin >> UserDetails.UserHash;
+		std::cin >> Password;
+
+		UserDetails.UserHash = HashPassword(Password);
 
 		Logger(LogType::INFO) << "New User '" << UserDetails.Username << "' has been created.";
 		vUsers.emplace_back(UserDetails);
@@ -73,48 +79,25 @@ bool RegisterNewUser(std::vector<User>& vUsers, User& UserDetails)
 bool LoginUser(const std::vector<User>& vUsers, User& UserDetails)
 {
 	std::string Username;
-	std::string UserHash;
+	std::string password;
 	//Temporary
 	std::cin >> Username;
-	std::cin >> UserHash;
+	std::cin >> password;
 
 	for (const auto& User : vUsers)
 	{
-		if (User.UserHash == UserHash && User.Username == Username)
+		if (Username == User.Username)
 		{
-			Logger(LogType::INFO) << "User: '" << Username << "' has loggin in.";
+		if (VerifyPassword(password, User.UserHash))
+		{
+			Logger(LogType::INFO) << "Login successful.";
 			return true;
 		}
+		}
+
+
 	}
-	Logger(LogType::WARNING) << "Login failed. User: '" << Username << "' not found or wrong password.";
+	Logger(LogType::INFO) << "Usernames dont match with anyone in our database. Are you sure you dont want to register a new user?";
 	return false;
 }
 
-bool DeleteUser(std::vector<User>& vUsers, User& UserDetails)
-{
-	std::string Username;
-	std::string UserHash;
-	//Temp
-	std::cin >> Username;
-	std::cin >> UserHash;
-
-	int i{ GetUserIndex(vUsers, Username) };
-	UserDetails.UserHash = FindPassword(vUsers, Username);
-
-	if (i == -1)
-	{
-		Logger(LogType::WARNING) << "User '" << Username << "' not found.";
-		return false;
-	}
-
-	if (UserHash != UserDetails.UserHash)
-	{
-		Logger(LogType::WARNING) << "Password doesnt match. Abort.";
-		return false;
-	}
-
-	DeleteUserFromJson("users.json", i);
-
-	vUsers.erase(vUsers.begin() + i);
-	return true;
-}

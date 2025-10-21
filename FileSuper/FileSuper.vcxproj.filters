@@ -36,6 +36,9 @@
     <ClCompile Include="src\loggingHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\HashingHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="libaries\include\User.hpp">
@@ -54,6 +57,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="libaries\include\logginHandler.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="libaries\include\HashingHandler.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

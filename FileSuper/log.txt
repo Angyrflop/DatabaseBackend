@@ -1,8 +1,5 @@
-
-2025-10-20 21:03:40 [WARN] Loaded '8' users from database.
-2025-10-20 21:03:40 [INFO] Users loading was successful.
-2025-10-20 21:30:49 [WARN] Loaded '8' users from database.
-2025-10-20 21:30:49 [INFO] Users loading was successful.
-2025-10-20 21:31:24 [INFO] User removed from json.
-2025-10-20 21:31:38 [INFO] User removed from json.
-2025-10-20 21:31:46 [WARN] Login failed. User: 'kk' not found or wrong password.
+2025-10-21 10:21:24 [WARN] Loaded '3' users from database.
+2025-10-21 10:21:24 [INFO] Users loading was successful.
+2025-10-21 10:21:49 [INFO] New User 'Jan' has been created.
+2025-10-21 10:22:02 [INFO] Login successful.
+2025-10-21 10:22:24 [INFO] User removed from json.

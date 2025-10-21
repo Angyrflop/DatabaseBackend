@@ -3,9 +3,10 @@
 #include <json.hpp>
 #include <fstream>
 #include <iostream>
-#include <iomanip>
 #include "User.hpp"
+#include "LoginRegisterHandler.hpp"
 #include "logginHandler.hpp"
+#include <HashingHandler.hpp>
 
 using json = nlohmann::json;
 
@@ -109,5 +110,34 @@ bool DeleteUserFromJson(const std::string& sFilePath, int i)
 	oFile.close();
 
 	Logger(LogType::INFO) << "User removed from json.";
+	return true;
+}
+
+bool DeleteUser(std::vector<User>& vUsers, User& UserDetails)
+{
+	std::string Username;
+	std::string password;
+	//Temp
+	std::cin >> Username;
+	std::cin >> password;
+
+	int i{ GetUserIndex(vUsers, Username) };
+	UserDetails.UserHash = FindPassword(vUsers, Username);
+
+	if (i == -1)
+	{
+		Logger(LogType::WARNING) << "User '" << Username << "' not found.";
+		return false;
+	}
+
+	if (!VerifyPassword(password, UserDetails.UserHash))
+	{
+		Logger(LogType::WARNING) << "Password doesnt match. Abort.";
+		return false;
+	}
+
+	DeleteUserFromJson("users.json", i);
+
+	vUsers.erase(vUsers.begin() + i);
 	return true;
 }
