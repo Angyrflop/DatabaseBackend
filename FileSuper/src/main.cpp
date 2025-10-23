@@ -12,13 +12,14 @@
 #include <logginHandler.hpp>
 #include <cstdlib>
 #include <config.hpp>
+#include <WebHandler.hpp>
 
 int main()
 {
 
     if (!initSodium())
     {
-        Logger(LogType::ERROR) << "Failed to init sodium!";
+        Logger (LogType::ERROR) << "Failed to init sodium!";
         return 1;
     }
 
@@ -64,6 +65,11 @@ int main()
         {
            DeleteUser(vUsers, UserDetails);
            break;
+        }
+        case '5':
+        {
+            StartWebPage();
+            break;
         }
         default:
         {

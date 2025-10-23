@@ -1,9 +1,21 @@
-2025-10-21 10:21:24 [WARN] Loaded '3' users from database.
-2025-10-21 10:21:24 [INFO] Users loading was successful.
-2025-10-21 10:21:49 [INFO] New User 'Jan' has been created.
-2025-10-21 10:22:02 [INFO] Login successful.
-2025-10-21 10:22:24 [INFO] User removed from json.
-2025-10-21 10:51:58 [WARN] Loaded '3' users from database.
-2025-10-21 10:51:58 [INFO] Users loading was successful.
-2025-10-21 10:53:00 [WARN] Loaded '3' users from database.
-2025-10-21 10:53:00 [INFO] Users loading was successful.
+2025-10-23 01:22:17 [WARN] Loaded '3' users from database.
+2025-10-23 01:22:17 [INFO] Users loading was successful.
+2025-10-23 01:24:34 [WARN] Loaded '3' users from database.
+2025-10-23 01:24:34 [INFO] Users loading was successful.
+2025-10-23 04:42:04 [WARN] Loaded '3' users from database.
+2025-10-23 04:42:04 [INFO] Users loading was successful.
+2025-10-23 04:42:21 [INFO] New User 'n' has been created.
+2025-10-23 04:42:24 [INFO] Login successful.
+2025-10-23 04:42:28 [INFO] User removed from json.
+2025-10-23 04:43:22 [WARN] User 'n' not found.
+2025-10-23 04:46:49 [WARN] Loaded '3' users from database.
+2025-10-23 04:46:49 [INFO] Users loading was successful.
+2025-10-23 04:48:20 [WARN] Loaded '3' users from database.
+2025-10-23 04:48:20 [INFO] Users loading was successful.
+2025-10-23 04:49:34 [WARN] Loaded '3' users from database.
+2025-10-23 04:49:34 [INFO] Users loading was successful.
+2025-10-23 05:03:49 [WARN] Loaded '3' users from database.
+2025-10-23 05:03:49 [INFO] Users loading was successful.
+2025-10-23 05:06:58 [INFO] Usernames dont match with anyone in our database. Are you sure you dont want to register a new user?
+2025-10-23 05:10:11 [WARN] Loaded '3' users from database.
+2025-10-23 05:10:11 [INFO] Users loading was successful.

@@ -84,19 +84,18 @@ bool LoginUser(const std::vector<User>& vUsers, User& UserDetails)
 	std::cin >> Username;
 	std::cin >> password;
 
-	for (const auto& User : vUsers)
+
+	if (FindUser(vUsers, Username))
 	{
-		if (Username == User.Username)
-		{
-		if (VerifyPassword(password, User.UserHash))
+		std::string sStoredHash = FindPassword(vUsers, Username);
+
+		if (VerifyPassword(password, sStoredHash))
 		{
 			Logger(LogType::INFO) << "Login successful.";
 			return true;
 		}
-		}
-
-
 	}
+
 	Logger(LogType::INFO) << "Usernames dont match with anyone in our database. Are you sure you dont want to register a new user?";
 	return false;
 }

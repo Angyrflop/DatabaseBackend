@@ -29,6 +29,7 @@
     <ClCompile Include="src\User.cpp" />
     <ClCompile Include="src\UserDir.cpp" />
     <ClCompile Include="src\Verification.cpp" />
+    <ClCompile Include="src\WebHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="libaries\include\config.hpp" />
@@ -39,6 +40,7 @@
     <ClInclude Include="libaries\include\User.hpp" />
     <ClInclude Include="libaries\include\UserDir.hpp" />
     <ClInclude Include="libaries\include\Verification.hpp" />
+    <ClInclude Include="libaries\include\WebHandler.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -128,6 +130,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\Users\melan\source\repos\FileSuper\FileSuper\libaries\libs;C:\Users\melan\source\repos\FileSuper\FileSuper\libaries\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

@@ -20,8 +20,7 @@ bool SaveUsersToJson(const std::vector<User>& vUsers, const std::string& sFilePa
 	{
 		j.push_back({
 			{"Username", User.Username},
-			{"UserHash", User.UserHash},
-			{"IsVerified", User.IsVerified}
+			{"UserHash", User.UserHash}
 			});
 	}
 
@@ -61,7 +60,6 @@ bool LoadUsers(std::vector<User>& vUsers, const std::string& sFilePath)
 	for (const auto& user : j)
 	{
 		User AddUser;
-		AddUser.IsVerified = user["IsVerified"].get<bool>();
 		AddUser.UserHash = user["UserHash"].get<std::string>();
 		AddUser.Username = user["Username"].get<std::string>();
 		vUsers.push_back(AddUser);
