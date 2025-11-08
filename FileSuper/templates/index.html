@@ -1,8 +1,28 @@
+<!-- Copyright (c) goes to Jan Oliver Quant-->
+ <!-- I apologize for the weird file structure, i had to do this because my IDE, visual studio, doesn't really like file paths and all-->
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Website</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
 <body>
+    <h1>Login page</h1>
+    <form action="/login" method="post">
+        
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
 
-    <p>Hello! you are {{age}} years old!</p>
-
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <input type="submit" value="Login">
+    </form>
+    <p><a href="/privacy-policy">Privacy Policy</a></p>
+    <p>Don't have an account? <a href="/register">Register here</a></p>
+    <footer>
+        <p>&copy; 2025 Test Website</p>
+    </footer>
 </body>
 </html>

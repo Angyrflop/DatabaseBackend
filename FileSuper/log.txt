@@ -19,3 +19,98 @@
 2025-10-23 05:06:58 [INFO] Usernames dont match with anyone in our database. Are you sure you dont want to register a new user?
 2025-10-23 05:10:11 [WARN] Loaded '3' users from database.
 2025-10-23 05:10:11 [INFO] Users loading was successful.
+2025-10-23 05:31:51 [WARN] Loaded '3' users from database.
+2025-10-23 05:31:51 [INFO] Users loading was successful.
+2025-10-23 05:33:25 [WARN] Loaded '3' users from database.
+2025-10-23 05:33:25 [INFO] Users loading was successful.
+2025-10-23 21:24:44 [WARN] Loaded '3' users from database.
+2025-10-23 21:24:44 [INFO] Users loading was successful.
+2025-10-23 21:28:23 [WARN] Loaded '3' users from database.
+2025-10-23 21:28:23 [INFO] Users loading was successful.
+2025-10-23 21:29:31 [WARN] Loaded '3' users from database.
+2025-10-23 21:29:31 [INFO] Users loading was successful.
+2025-10-23 21:31:05 [WARN] Loaded '3' users from database.
+2025-10-23 21:31:05 [INFO] Users loading was successful.
+2025-10-23 21:33:12 [WARN] Loaded '3' users from database.
+2025-10-23 21:33:12 [INFO] Users loading was successful.
+2025-10-23 21:34:57 [WARN] Loaded '3' users from database.
+2025-10-23 21:34:57 [INFO] Users loading was successful.
+2025-10-23 21:36:33 [WARN] Loaded '3' users from database.
+2025-10-23 21:36:33 [INFO] Users loading was successful.
+2025-10-23 21:39:55 [WARN] Loaded '3' users from database.
+2025-10-23 21:39:55 [INFO] Users loading was successful.
+2025-10-23 21:42:45 [WARN] Loaded '3' users from database.
+2025-10-23 21:42:45 [INFO] Users loading was successful.
+2025-10-23 22:21:46 [WARN] Loaded '3' users from database.
+2025-10-23 22:21:46 [INFO] Users loading was successful.
+2025-10-23 22:25:24 [WARN] Loaded '3' users from database.
+2025-10-23 22:25:24 [INFO] Users loading was successful.
+2025-10-23 23:11:21 [WARN] Loaded '3' users from database.
+2025-10-23 23:11:21 [INFO] Users loading was successful.
+2025-10-23 23:11:36 [WARN] Loaded '3' users from database.
+2025-10-23 23:11:36 [INFO] Users loading was successful.
+2025-10-23 23:12:31 [WARN] Loaded '3' users from database.
+2025-10-23 23:12:31 [INFO] Users loading was successful.
+2025-10-23 23:13:37 [WARN] Loaded '3' users from database.
+2025-10-23 23:13:37 [INFO] Users loading was successful.
+2025-10-23 23:14:45 [WARN] Loaded '3' users from database.
+2025-10-23 23:14:45 [INFO] Users loading was successful.
+2025-10-23 23:15:19 [WARN] Loaded '3' users from database.
+2025-10-23 23:15:19 [INFO] Users loading was successful.
+2025-10-23 23:15:40 [WARN] Loaded '3' users from database.
+2025-10-23 23:15:40 [INFO] Users loading was successful.
+2025-10-23 23:17:08 [WARN] Loaded '3' users from database.
+2025-10-23 23:17:08 [INFO] Users loading was successful.
+2025-10-31 05:06:50 [WARN] Loaded '3' users from database.
+2025-10-31 05:06:50 [INFO] Users loading was successful.
+2025-10-31 05:10:14 [WARN] Loaded '3' users from database.
+2025-10-31 05:10:14 [INFO] Users loading was successful.
+2025-10-31 05:12:33 [WARN] Loaded '3' users from database.
+2025-10-31 05:12:33 [INFO] Users loading was successful.
+2025-10-31 05:13:48 [WARN] Loaded '3' users from database.
+2025-10-31 05:13:48 [INFO] Users loading was successful.
+2025-10-31 08:34:55 [WARN] Loaded '3' users from database.
+2025-10-31 08:34:55 [INFO] Users loading was successful.
+2025-10-31 08:37:39 [INFO] New User 'q' has been created.
+2025-10-31 08:42:03 [WARN] Loaded '4' users from database.
+2025-10-31 08:42:03 [INFO] Users loading was successful.
+2025-10-31 08:48:02 [WARN] Loaded '4' users from database.
+2025-10-31 08:48:02 [INFO] Users loading was successful.
+2025-10-31 09:01:46 [WARN] Loaded '4' users from database.
+2025-10-31 09:01:46 [INFO] Users loading was successful.
+2025-10-31 14:44:33 [WARN] Loaded '4' users from database.
+2025-10-31 14:44:33 [INFO] Users loading was successful.
+2025-10-31 14:50:37 [WARN] Loaded '4' users from database.
+2025-10-31 14:50:37 [INFO] Users loading was successful.
+2025-10-31 14:57:14 [WARN] Loaded '4' users from database.
+2025-10-31 14:57:14 [INFO] Users loading was successful.
+2025-10-31 15:00:29 [WARN] Loaded '4' users from database.
+2025-10-31 15:00:29 [INFO] Users loading was successful.
+2025-10-31 15:00:48 [INFO] Usernames dont match with anyone in our database. Are you sure you dont want to register a new user?
+2025-11-08 17:33:03 [WARN] Loaded '4' users from database.
+2025-11-08 17:33:03 [INFO] Users loading was successful.
+2025-11-08 17:34:01 [INFO] New User 'ex' has been created.
+2025-11-08 17:34:06 [INFO] Login successful.
+2025-11-08 17:44:11 [WARN] Loaded '5' users from database.
+2025-11-08 17:44:11 [INFO] Users loading was successful.
+2025-11-08 17:50:57 [WARN] Loaded '5' users from database.
+2025-11-08 17:50:57 [INFO] Users loading was successful.
+2025-11-08 18:00:29 [WARN] Loaded '5' users from database.
+2025-11-08 18:00:29 [INFO] Users loading was successful.
+2025-11-08 18:05:12 [WARN] Loaded '5' users from database.
+2025-11-08 18:05:12 [INFO] Users loading was successful.
+2025-11-08 18:07:03 [INFO] Usernames dont match with anyone in our database. Are you sure you dont want to register a new user?
+2025-11-08 18:07:53 [WARN] Loaded '5' users from database.
+2025-11-08 18:07:53 [INFO] Users loading was successful.
+2025-11-08 18:14:10 [WARN] Loaded '5' users from database.
+2025-11-08 18:14:10 [INFO] Users loading was successful.
+2025-11-08 18:22:33 [WARN] Loaded '5' users from database.
+2025-11-08 18:22:33 [INFO] Users loading was successful.
+2025-11-08 18:24:15 [WARN] Loaded '5' users from database.
+2025-11-08 18:24:15 [INFO] Users loading was successful.
+2025-11-08 18:28:03 [WARN] Loaded '5' users from database.
+2025-11-08 18:28:03 [INFO] Users loading was successful.
+2025-11-08 18:31:27 [WARN] Loaded '5' users from database.
+2025-11-08 18:31:27 [INFO] Users loading was successful.
+2025-11-08 18:34:42 [WARN] Loaded '5' users from database.
+2025-11-08 18:34:42 [INFO] Users loading was successful.

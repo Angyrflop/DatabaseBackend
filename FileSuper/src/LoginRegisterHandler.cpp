@@ -46,18 +46,8 @@ int GetUserIndex(const std::vector<User>& vUsers, const std::string& username)
 
 bool RegisterNewUser(std::vector<User>& vUsers, User& UserDetails)
 {
-	char registerChoice;
 
 	std::string Password;
-
-	std::cout << "Would you like to make a new user?\n";
-
-	std::cin >> registerChoice;
-
-	if (registerChoice == 'y')
-	{
-		std::cout << "Enter your Username.\n";
-		std::cin >> UserDetails.Username;
 
 		if (FindUser(vUsers, UserDetails.Username))
 		{
@@ -72,7 +62,7 @@ bool RegisterNewUser(std::vector<User>& vUsers, User& UserDetails)
 
 		Logger(LogType::INFO) << "New User '" << UserDetails.Username << "' has been created.";
 		vUsers.emplace_back(UserDetails);
-	}
+
 	return true;
 }
 

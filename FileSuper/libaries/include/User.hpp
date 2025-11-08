@@ -1,13 +1,16 @@
 //Copyright(c) Goes to Jan Oliver Quant
 #pragma once
 #include <string>
+#include <vector>
 
 struct User
 {
 public:
 	std::string Username;
 	std::string UserHash;
-	bool IsVerified;
 
-	User(const std::string& sUsername = "", const std::string& sUserHash = "", bool bVerified = false);
+
+	User(const std::string& sUsername = "", const std::string& sUserHash = "");
 };
+
+extern std::vector<User> vUsers;

@@ -25,7 +25,6 @@ int main()
 
 	User UserDetails;
 	UserDir UserDirDetails;
-	std::vector<User> vUsers;
 	char Input;
 
     if (!LoadUsers(vUsers, Config::USERS_FILE))
@@ -33,50 +32,7 @@ int main()
         abort();
     }
 
-    while (true)
-    {
-        std::cin >> Input;
+    StartWebPage();
 
-        switch (Input)
-        {
-        case '1':
-        {
-            LoginUser(vUsers, UserDetails);
-            break;
-        }
-        case '2':
-        {
-            if (RegisterNewUser(vUsers, UserDetails))
-            {
-                if (!SaveUsersToJson(vUsers, Config::USERS_FILE))
-                {
-                    std::cerr << "Saving to JSON failed.\n";
-                    std::abort();
-                }
-            }
-            break;
-        }
-        case '3': // Temp
-        {
-            std::cout << "Closing Session\n";
-            std::exit(0);
-        }
-        case '4':
-        {
-           DeleteUser(vUsers, UserDetails);
-           break;
-        }
-        case '5':
-        {
-            StartWebPage();
-            break;
-        }
-        default:
-        {
-            std::cerr << "Invalid choice. Please try again.\n";
-            break;
-        }
-        }
-    }
     std::exit(0);
 }
