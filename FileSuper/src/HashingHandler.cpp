@@ -61,7 +61,7 @@ bool VerifyPassword(const std::string& Password, const std::string& hash)
         static_cast<size_t>(pwd.size())
     );
 
-    void sodium_memzero(void* const pnt, const size_t len);
+    sodium_memzero(pwd.data(), pwd.size());
 
     if (VerifyResult == 0)
     {
