@@ -129,8 +129,6 @@ bool StartWebPage()
 
         User user(username, password);
 
-        std::cout << user.UserHash << user.UserHash;
-
         DeleteUser(vUsers, user);
 
         return crow::response(200, "User deleted");

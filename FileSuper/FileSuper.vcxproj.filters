@@ -24,9 +24,6 @@
     <ClCompile Include="src\User.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\UserDir.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\Verification.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -45,9 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="libaries\include\User.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="libaries\include\UserDir.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="libaries\include\JsonHandler.hpp">

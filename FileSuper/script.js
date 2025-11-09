@@ -60,7 +60,7 @@ function deleteAccount() {
         return;
     }
 
-    fetch("/delete", {
+    fetch("/delete-account", {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password })

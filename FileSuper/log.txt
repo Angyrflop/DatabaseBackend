@@ -163,3 +163,14 @@
 2025-11-09 10:26:25 [INFO] Login successful.
 2025-11-09 10:26:29 [INFO] Password verification failed
 2025-11-09 10:26:29 [INFO] Attempted login failed - wrong password.
+2025-11-09 10:34:23 [WARN] Loaded '5' users from database.
+2025-11-09 10:34:23 [INFO] Users loading was successful.
+2025-11-09 10:34:44 [WARN] Loaded '0' users from database.
+2025-11-09 10:34:44 [INFO] Users loading was successful.
+2025-11-09 10:35:01 [WARN] LoadUsers: File is either corrupted or empty.
+2025-11-09 10:35:01 [ERROR] Failed to load users.
+2025-11-09 10:36:09 [INFO] Login successful.
+2025-11-09 10:37:24 [WARN] Loaded '1' users from database.
+2025-11-09 10:37:24 [INFO] Users loading was successful.
+2025-11-09 10:37:34 [INFO] User removed from json.
+2025-11-09 10:37:34 [INFO] User 'Jan' has been deleted

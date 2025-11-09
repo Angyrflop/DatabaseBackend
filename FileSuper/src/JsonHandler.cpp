@@ -42,14 +42,14 @@ bool LoadUsers(std::vector<User>& vUsers, const std::string& sFilePath)
 	std::ifstream iFile(sFilePath);
 	if (!iFile.is_open())
 	{
-		Logger(LogType::WARNING) << "Couldnt open users.";
+		Logger(LogType::WARNING) << "LoadUsers: Couldnt open users.";
 		return false;
 	}
 
 	//Not my code
 	if (iFile.peek() == std::ifstream::traits_type::eof())
 	{
-		Logger(LogType::WARNING) << "File is either corrupted or empty.";
+		Logger(LogType::WARNING) << "LoadUsers: File is either corrupted or empty.";
 		return false;
 	}
 
