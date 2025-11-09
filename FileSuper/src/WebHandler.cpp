@@ -8,10 +8,8 @@
 #include <JsonHandler.hpp>
 #include <config.hpp>
 #include <LoginRegisterHandler.hpp>
-/*
-Things to keep in mind:
-Only one route. Dont overlap otherwise the programm will crash. Found out the hard way after debugging for half an hour.
-*/
+#include <HashingHandler.hpp>
+
 bool StartWebPage()
 {
 	crow::SimpleApp app;
@@ -29,11 +27,32 @@ bool StartWebPage()
         res.end();
             });
 
-    CROW_ROUTE(app, "/login")
+    CROW_ROUTE(app, "/login").methods("GET"_method)
         ([](){
             auto page = crow::mustache::load_text("index.html");
             return page;
         });
+
+    CROW_ROUTE(app, "/login").methods("POST"_method)
+        ([](const crow::request& req) {
+
+        auto x = crow::json::load(req.body);
+
+        if (!x || !x.has("username") || !x.has("password")) {
+            return crow::response(404, "Invalid input.");
+        }
+
+        std::string username = x["username"].s();
+        std::string password = x["password"].s();
+
+        User user(username, password);
+
+        if (!LoginUser(vUsers, user)) {
+            return crow::response(404, "User doesn't exist or wrong password.");
+        }
+
+        return crow::response(201, "Login successful!");
+            });
 
     CROW_ROUTE(app, "/privacy-policy")
         ([](const crow::request&, crow::response& res) {
@@ -67,8 +86,6 @@ bool StartWebPage()
     CROW_ROUTE(app, "/register").methods("POST"_method)
         ([](const crow::request& req) {
 
-        std::cout << "METHOD: POST/register. Body: " << req.body << std::endl;
-
         auto x = crow::json::load(req.body);
 
         // Checks if the json is empty
@@ -79,7 +96,13 @@ bool StartWebPage()
         std::string username = x["username"].s();   //The '.s()' basically converts the json to a string
         std::string password = x["password"].s();
 
-        User user(username, password);
+        if (FindUser(vUsers, username)) {
+            return crow::response(404, "User already exists.");
+        }
+
+        std::string HashedPassword = HashPassword(password);
+
+        User user(username, HashedPassword);
 
         vUsers.push_back(user);
         SaveUsersToJson(vUsers, Config::USERS_FILE);
@@ -87,6 +110,31 @@ bool StartWebPage()
         return crow::response(201, "User registered");
             });
 
+    CROW_ROUTE(app, "/delete-account").methods("GET"_method)
+        ([]() {
+        auto page = crow::mustache::load_text("delete.html");
+        return page;
+            });
+    CROW_ROUTE(app, "/delete-account").methods("DELETE"_method)
+        ([](const crow::request& req) {
+
+        auto x = crow::json::load(req.body);
+
+        if (!x || !x.has("username") || !x.has("password")) {
+            return crow::response(404, "Invalid input");
+        }
+
+        std::string username = x["username"].s();
+        std::string password = x["password"].s();
+
+        User user(username, password);
+
+        std::cout << user.UserHash << user.UserHash;
+
+        DeleteUser(vUsers, user);
+
+        return crow::response(200, "User deleted");
+            });
     app.port(8080).multithreaded().run();
     return true;
 }

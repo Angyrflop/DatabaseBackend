@@ -10,18 +10,17 @@
 </head>
 <body>
     <h1>Login page</h1>
-    <form action="/login" method="post">
+    <form id="deleteForm" action="/delete" method="post">
         
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required><br><br>
 
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required><br><br>
-        <button type="button" onclick="login()">Login</button>
+        <button type="button" onclick="deleteAccount()">Delete account</button>
     </form>
     <p><a href="/privacy-policy">Privacy Policy</a></p>
-    <p>Don't have an account? <a href="/register">Register here</a></p>
-    <p>Want to delete your account? <a href="/delete-account">Delete here</a></p>
+    <p>Don't want to delete your account? <a href="/register">Return here</a></p>
     <footer>
         <p>&copy; 2025 Test Website</p>
     </footer>

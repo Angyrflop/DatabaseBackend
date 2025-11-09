@@ -7,7 +7,7 @@
 #include <HashingHandler.hpp>
 #include <iostream>
 
-static bool FindUser(const std::vector<User>& vUsers, const std::string& username)
+bool FindUser(const std::vector<User>& vUsers, const std::string& username)
 {
 	for (const auto& User : vUsers)
 	{
@@ -68,25 +68,21 @@ bool RegisterNewUser(std::vector<User>& vUsers, User& UserDetails)
 
 bool LoginUser(const std::vector<User>& vUsers, User& UserDetails)
 {
-	std::string Username;
-	std::string password;
-	//Temporary
-	std::cin >> Username;
-	std::cin >> password;
+    if (!FindUser(vUsers, UserDetails.Username))
+    {
+        Logger(LogType::INFO) << "Attempted login failed - user not found.";
+        return false;
+    }
 
+    std::string sStoredHash = FindPassword(vUsers, UserDetails.Username);
 
-	if (FindUser(vUsers, Username))
-	{
-		std::string sStoredHash = FindPassword(vUsers, Username);
+    // UserDetails.UserHash contains the plain password from the web request
+    if (VerifyPassword(UserDetails.UserHash, sStoredHash))
+    {
+        Logger(LogType::INFO) << "Login successful.";
+        return true;
+    }
 
-		if (VerifyPassword(password, sStoredHash))
-		{
-			Logger(LogType::INFO) << "Login successful.";
-			return true;
-		}
-	}
-
-	Logger(LogType::INFO) << "Usernames dont match with anyone in our database. Are you sure you dont want to register a new user?";
-	return false;
+    Logger(LogType::INFO) << "Attempted login failed - wrong password.";
+    return false;
 }
-

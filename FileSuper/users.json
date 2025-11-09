@@ -18,9 +18,5 @@
     {
         "UserHash": "$argon2id$v=19$m=65536,t=2,p=1$NrHE8EKj5x5Fy716XsdcZA$xt06AZSpxyKBdM7j9THiklxDmaxQTRQ2nXNGT/hJM3I",
         "Username": "ex"
-    },
-    {
-        "UserHash": "123",
-        "Username": "123"
     }
 ]

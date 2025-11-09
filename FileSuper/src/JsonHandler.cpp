@@ -90,7 +90,7 @@ static bool DeleteUserFromJson(const std::string& sFilePath, int i)
 	iFile >> j;
 	iFile.close();
 
-	if (j < 0 || i >= j.size())
+	if (i < 0 || i >= j.size())
 	{
 		Logger(LogType::WARNING) << "Invalid index. No User removed.";
 		return false;
@@ -114,29 +114,31 @@ static bool DeleteUserFromJson(const std::string& sFilePath, int i)
 
 bool DeleteUser(std::vector<User>& vUsers, User& UserDetails)
 {
-	std::string Username;
-	std::string password;
-	//Temp
-	std::cin >> Username;
-	std::cin >> password;
 
-	int i{ GetUserIndex(vUsers, Username) };
-	UserDetails.UserHash = FindPassword(vUsers, Username);
+	int i{ GetUserIndex(vUsers, UserDetails.Username) };
+
 
 	if (i == -1)
 	{
-		Logger(LogType::WARNING) << "User '" << Username << "' not found.";
+		Logger(LogType::WARNING) << "User '" << UserDetails.Username << "' not found.";
 		return false;
 	}
 
-	if (!VerifyPassword(password, UserDetails.UserHash))
+	std::string storedHash = FindPassword(vUsers, UserDetails.Username);
+
+	if (!VerifyPassword(UserDetails.UserHash, storedHash))
 	{
 		Logger(LogType::WARNING) << "Password doesnt match. Abort.";
 		return false;
 	}
 
-	DeleteUserFromJson(Config::USERS_FILE, i);
+	if (!DeleteUserFromJson(Config::USERS_FILE, i))
+	{
+		Logger(LogType::ERROR) << "Failed to delete user from json.";
+		return false;
+	}
 
 	vUsers.erase(vUsers.begin() + i);
+	Logger(LogType::INFO) << "User '" << UserDetails.Username << "' has been deleted";
 	return true;
 }
